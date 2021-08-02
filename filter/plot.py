@@ -1,7 +1,10 @@
-import pylab as pl
+import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 
+"""a = tf.constant(1)
+b = tf.constant(2)
+print(tf.add(a,b))"""
 ecg = np.loadtxt("ecg50hz.dat")
 plt.figure()
 plt.plot(ecg)
