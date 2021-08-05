@@ -1,70 +1,56 @@
-import matplotlib.pyplot as plt 
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Extract useful information from Raw Data and save to the folder ProcessedData
+Plot Chanel 1 and Chanel 2 of ADC for each subject and trail (arm, wrist)
+
+Define total subject number and trails first
+"""
+import matplotlib.pyplot as plt
 import numpy as np
 
-# Load raw data and extract the three relevant columns (time, ch1 and ch2 of ADC)
-data_arm_1 = np.loadtxt("../RawData/data_arm_1.tsv")[:,[0,7,8]]
-data_arm_2 = np.loadtxt("../RawData/data_arm_2.tsv")[:,[0,7,8]]
-data_wrist_1 = np.loadtxt("../RawData/data_wrist_1.tsv")[:,[0,7,8]]
-data_wrist_2 = np.loadtxt("../RawData/data_wrist_2.tsv")[:,[0,7,8]]
-relax_arm = np.loadtxt("../RawData/relax_arm.tsv")[:,[0,7,8]]
-relax_wrist = np.loadtxt("../RawData/relax_wrist.tsv")[:,[0,7,8]]
+# define total subject number , trails
+sbjct_num = 2
+trails = ['arm', 'wrist']
 
-# specific data
-signal_arm_1 = data_arm_1[:,1]
-noise_arm_1 = data_arm_1[:,2]
-signal_arm_2 = data_arm_2[:,1]
-noise_arm_2 = data_arm_2[:,2]
-signal_wrist_1 = data_wrist_1[:,1]
-noise_wrist_1 = data_wrist_1[:,2]
-signal_wrist_2 = data_wrist_2[:,1]
-noise_wrist_2 = data_wrist_2[:,2]
-signal_arm_relax = relax_arm[:,1]
-noise_arm_relax = relax_arm[:,2]
-signal_wrist_relax = relax_wrist[:,1]
-noise_wirst_relax = relax_wrist[:,2]
+data = []
+# Extract useful information
+for sbjct in range(1, sbjct_num + 1):
+    figure = plt.figure("Subject " + str(sbjct) + "Raw Data")
+    data.append({})
+    count = 1
+    for trail in trails:
+        # Load raw data and extract the three relevant columns (time, ch1 and ch2 of ADC)
+        data[sbjct-1][trail] = np.loadtxt("../Data/RawData/data_" + trail + "_" + str(sbjct) + ".tsv")[:,[0,7,8]]
+        # save
+        np.savetxt("../Data/ProcessedData/extracted_" + trail + "_" + str(sbjct) + ".tsv", data[sbjct-1][trail])
+        print(" File saved to" + "  ../Data/ProcessedData/extracted_" + trail + "_" + str(sbjct) + ".tsv")
 
-# plot
-figure = plt.figure('Raw data')
-figure.add_subplot(621)
-plt.plot(signal_arm_1, linewidth=1)
-plt.title('1.Ch1 signal --arm')
-figure.add_subplot(622)
-plt.plot(noise_arm_1, linewidth=1)
-plt.title('1.Ch2 noise --arm')
+        # plot (two chanel)
+        figure.add_subplot(len(trails), 2, count) # chanel 1
+        plt.plot(data[sbjct-1][trail][:, 1], linewidth=1)
+        plt.title('Subject' + str(sbjct) + ' ' + trail + ' CH1')
+        figure.add_subplot(len(trails), 2, count+1) # chanel 2
+        plt.plot(data[sbjct-1][trail][:, 2], linewidth=1)
+        plt.title('Subject' + str(sbjct) + ' ' + trail + ' CH2')
+        count += 2
 
-figure.add_subplot(623)
-plt.plot(signal_arm_2, linewidth=1)
-plt.title('2.Ch1 signal --arm')
-figure.add_subplot(624)
-plt.plot(noise_arm_2, linewidth=1)
-plt.title('2.Ch2 noise --arm')
+# relaxed data
+relax_data = {}
+figure = plt.figure(" Relax Raw Data")
+count = 1
+for trail in trails:
+    relax_data[trail] = np.loadtxt("../Data/RawData/relax_" + trail +  ".tsv")[:,[0,7,8]]
+    np.savetxt("../Data/ProcessedData/extracted_relax_" + trail +  ".tsv", relax_data[trail])
+    print(" File saved to" + "  ../Data/ProcessedData/extracted_relax_" + trail + ".tsv")
 
-figure.add_subplot(625)
-plt.plot(signal_wrist_1, linewidth=1)
-plt.title('1.Ch1 signal --wrist')
-figure.add_subplot(626)
-plt.plot(noise_wrist_1, linewidth=1)
-plt.title('1.Ch2 noise --wrist')
-
-figure.add_subplot(627)
-plt.plot(signal_wrist_2, linewidth=1)
-plt.title('2.Ch1 signal --wrist')
-figure.add_subplot(628)
-plt.plot(noise_wrist_2, linewidth=1)
-plt.title('2.Ch2 noise --wrist')
-
-figure.add_subplot(629)
-plt.plot(signal_arm_relax, linewidth=1)
-plt.title('Ch1 signal -- relax arm')
-figure.add_subplot(6,2,10)
-plt.plot(noise_arm_relax, linewidth=1)
-plt.title('Ch2 noise -- relax arm')
-
-figure.add_subplot(6,2,11)
-plt.plot(signal_wrist_relax, linewidth=1)
-plt.title('Ch1 signal -- relax wrist')
-figure.add_subplot(6,2,12)
-plt.plot(noise_wirst_relax, linewidth=1)
-plt.title('Ch2 noise -- relax wrist')
+    # plot (two chanel)
+    figure.add_subplot(len(trails), 2, count)  # chanel 1
+    plt.plot(relax_data[trail][:, 1], linewidth=1)
+    plt.title('Relax ' + trail + ' CH1')
+    figure.add_subplot(len(trails), 2, count + 1)  # chanel 2
+    plt.plot(relax_data[trail][:, 2], linewidth=1)
+    plt.title('Relax ' + trail + ' CH2')
+    count += 2
 
 plt.show()
