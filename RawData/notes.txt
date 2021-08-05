@@ -1,0 +1,7 @@
+Data set 1:
+data_wrist_1 500 gain
+data_arm_1 500 gain
+data_wrist_2 500 gain
+data_arm_2 500 gain
+relax_wrist 500 gain
+relaxed_arm 500 gain
