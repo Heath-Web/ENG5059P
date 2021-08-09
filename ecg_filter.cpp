@@ -41,18 +41,12 @@ int main(){
 			// Open extracted data file, and output file 
 			if (subject == num_subjects ){
 				data_file_name = "./Data/ProcessedData/extracted_relax_" +  trials[trial] + ".tsv";
-				//prefilter_file_name = "./Data/FilteredData/filtered_relax_" + trials[trial] + ".tsv";
-				//remover_file_name = "./Data/Remover/remover_relax_" + trials[trial] + ".tsv";
 				output_file_name = "./Data/Output/output_relax_" + trials[trial] + ".tsv";
 			} else {
 				data_file_name = "./Data/ProcessedData/extracted_" + trials[trial] + "_" + str_subject + ".tsv";
-				//prefilter_file_name = "./Data/FilteredData/filtered_" + trials[trial] + "_" + str_subject + ".tsv";
-				//remover_file_name = "./Data/Remover/remover_" + trials[trial] + "_" + str_subject + ".tsv";
 				output_file_name = "./Data/Output/output_" + trials[trial] + "_" + str_subject + ".tsv";
 			}
 			FILE* data_infile = fopen(data_file_name.c_str(),"rt");
-			//FILE* prefilter_outfile = fopen(prefilter_file_name.c_str(),"w");
-			//FILE* remover_outfile = fopen(remover_file_name.c_str(),"w");
 			FILE* output_outfile = fopen(output_file_name.c_str(),"w");
 			
 			if (!data_infile || !output_outfile) {
@@ -85,8 +79,8 @@ int main(){
     			count++;
 				// Pre filter
     			double ch1_filtered_data = ch1_fir_filter->filter(ch1_raw_data);
-				double ch2_filtered_data = ch1_fir_filter->filter(ch2_raw_data);				
-    			  
+				double ch2_filtered_data = ch2_fir_filter->filter(ch2_raw_data);
+								
     			// Chanel 2 Delay line
         		for (int i = num_inputs-1 ; i > 0; i--){
             		dnn_inputs[i] = dnn_inputs[i-1];
@@ -111,9 +105,7 @@ int main(){
         		NN->updateWeights();
         		
         		// Save File
-				//fprintf(prefilter_outfile, "%lf %lf %lf\n", data_time, ch1_filtered_data, ch2_filtered_data);
-				//fprintf(remover_outfile, "%lf %lf\n", data_time, remover);
-				fprintf(output_outfile, "%lf %lf %lf %lf %lf\n", data_time, feedback, remover, ch1_filtered_data, ch2_filtered_data);
+				fprintf(output_outfile, "%lf %lf %lf %lf %lf\n", data_time, feedback, remover, ch1_filtered_data, ch2_filtered_data);// Time Output Remover ch1 filtered data ch2 filtered data 
 				//printf("Sample: %d, ch2Raw:%lf, DNNInput: %lf, DNNoutput: %lf\n", count, ch2_raw_data , ch2_filtered_data,remover);
 			}
 		}
