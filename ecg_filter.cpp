@@ -13,30 +13,49 @@ using namespace std;
 
 // Define contants
 //const float fs = 250;
-const int num_subjects = 2;
-const int num_trials = 2; //as arm and wrist
-string trials[num_trials] = {"arm","wrist"};
+const int num_subjects = 1;
+const int num_trials = 1; //as arm and wrist
+string trials[num_trials] = {"arm"};//{"arm","wrist"};
+
+// Define Learning Rate of DNN
+double w_learningRate = 0.5;
+double b_learningRate = 0.5;
 
 // Define methods
 //void Pre_filter() {} // Remove 50Hz and DC from extracted data
 
-
 int main(){
 	std::srand(1);
-	for (int subject = 0; subject < num_subjects; subject++) { // for each subject
+	for (int subject = 0; subject <= num_subjects; subject++) { // for each subject
 		string str_subject = std::to_string(subject+1); // convert data formatb
-		cout << "Subject : " + str_subject << endl;
+		if (subject == num_subjects ){
+			cout << "Subject : Relax" << endl;
+		} else {
+			cout << "Subject : " + str_subject << endl;
+		}
 		for (int trial = 0; trial < num_trials; trial++){ // for each trial
 			cout << "Trial : " + trials[trial] << endl;
 			
-			// Open extracted data file
-			string file_name = "./Data/ProcessedData/extracted_";
-			file_name.append(trials[trial]);
-			file_name.append("_");
-			file_name.append(str_subject);
-			file_name.append(".tsv");
-			FILE* data_infile = fopen(file_name.c_str(),"rt");
-			if (!data_infile) {
+			string data_file_name = "";
+			string output_file_name = "";
+			// Open extracted data file, and output file 
+			if (subject == num_subjects ){
+				data_file_name = "./Data/ProcessedData/extracted_relax_" +  trials[trial] + ".tsv";
+				//prefilter_file_name = "./Data/FilteredData/filtered_relax_" + trials[trial] + ".tsv";
+				//remover_file_name = "./Data/Remover/remover_relax_" + trials[trial] + ".tsv";
+				output_file_name = "./Data/Output/output_relax_" + trials[trial] + ".tsv";
+			} else {
+				data_file_name = "./Data/ProcessedData/extracted_" + trials[trial] + "_" + str_subject + ".tsv";
+				//prefilter_file_name = "./Data/FilteredData/filtered_" + trials[trial] + "_" + str_subject + ".tsv";
+				//remover_file_name = "./Data/Remover/remover_" + trials[trial] + "_" + str_subject + ".tsv";
+				output_file_name = "./Data/Output/output_" + trials[trial] + "_" + str_subject + ".tsv";
+			}
+			FILE* data_infile = fopen(data_file_name.c_str(),"rt");
+			//FILE* prefilter_outfile = fopen(prefilter_file_name.c_str(),"w");
+			//FILE* remover_outfile = fopen(remover_file_name.c_str(),"w");
+			FILE* output_outfile = fopen(output_file_name.c_str(),"w");
+			
+			if (!data_infile || !output_outfile) {
     	    	cout << "Unable to open file";
    	    		exit(1); // terminate with error
     		}
@@ -53,33 +72,49 @@ int main(){
 			int nNeurons[NLAYERS]={N10, N9, N8, N7, N6, N5, N4, N3, N2, N1, N0};
 			int* numNeuronsP = nNeurons;
 			int num_inputs = outerDelayLineLength;
-			Net* NN = new Net(NLAYERS, numNeuronsP, num_inputs, 0, trials[trial]);
+			Net* NN = new Net(NLAYERS, numNeuronsP, num_inputs, subject, trials[trial]);
 			NN->initNetwork(Neuron::W_RANDOM, Neuron::B_RANDOM, Neuron::Act_Sigmoid);
 			
 			// Define inputs queue of DNN
-			//double dnn_inputs_queue[num_inputs];
+			double dnn_inputs[num_inputs] = {};
 			//double* dnn_inputs_queue_pointer;
 			
+			int count = 0;
     		// Read Raw data from tsv file
     		while (fscanf(data_infile,"%lf %lf %lf\n",&data_time, &ch1_raw_data, &ch2_raw_data) >= 1) {
-    			// Pre filter
+    			count++;
+				// Pre filter
     			double ch1_filtered_data = ch1_fir_filter->filter(ch1_raw_data);
 				double ch2_filtered_data = ch1_fir_filter->filter(ch2_raw_data);				
-    			printf("%lf ; ", ch1_filtered_data);
-    			// Delay line
-        		//for (int i = num_inputs-1 ; i > 0; i--){
-            	//	dnn_inputs_queue[i] = dnn_inputs_queue[i-1];
-        		//}
-        		//dnn_inputs_queue[0] = outer_closed;
-        		//outer_open_delayLine[0] = outer_open;
-        		
-        		//double* outer_closed_delayed = &outer_closed_delayLine[0];
-        		//double* outer_open_delayed = &outer_open_delayLine[0];
+    			  
+    			// Chanel 2 Delay line
+        		for (int i = num_inputs-1 ; i > 0; i--){
+            		dnn_inputs[i] = dnn_inputs[i-1];
+        		}
+        		dnn_inputs[0] = ch2_filtered_data;
+        		double* dnn_inputs_point = &dnn_inputs[0];
     			
     			// Input Chanel 2 into Network
+    			NN->setInputs(dnn_inputs_point);
+				NN->propInputs();
+    
+    			//Remover
+    			double remover = NN->getOutput(0);
     			
-    			
-    			// Learn, Update weights	
+    			// Learn, Update weights
+    			double feedback = ch1_filtered_data - remover;
+    			NN->setErrorCoeff(0, 1, 0, 0, 0, 0); //global, back, mid, forward, local, echo error
+        		NN->setBackwardError(feedback);
+        		NN->propErrorBackward();
+        		NN->setLearningRate(w_learningRate, b_learningRate);
+        		//if (count > maxFilterLength+outerDelayLineLength){
+        		NN->updateWeights();
+        		
+        		// Save File
+				//fprintf(prefilter_outfile, "%lf %lf %lf\n", data_time, ch1_filtered_data, ch2_filtered_data);
+				//fprintf(remover_outfile, "%lf %lf\n", data_time, remover);
+				fprintf(output_outfile, "%lf %lf %lf %lf %lf\n", data_time, feedback, remover, ch1_filtered_data, ch2_filtered_data);
+				//printf("Sample: %d, ch2Raw:%lf, DNNInput: %lf, DNNoutput: %lf\n", count, ch2_raw_data , ch2_filtered_data,remover);
 			}
 		}
 
