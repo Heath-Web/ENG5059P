@@ -13,13 +13,18 @@ using namespace std;
 
 // Define contants
 //const float fs = 250;
-const int num_subjects = 1;
-const int num_trials = 1; //as arm and wrist
-string trials[num_trials] = {"arm"};//{"arm","wrist"};
+const int num_subjects = 2; // total number of subject
+const int num_trials = 2; //as arm and wrist
+string trials[num_trials] = {"arm","wrist"};
+
+// Define and 
+int nNeurons[NLAYERS]={N10, N9, N8, N7, N6, N5, N4, N3, N2, N1, N0};
+int* numNeuronsP = nNeurons;
+int num_inputs = outerDelayLineLength;
 
 // Define Learning Rate of DNN
-double w_learningRate = 0.5;
-double b_learningRate = 0.5;
+double w_learningRate = 1;
+double b_learningRate = 2;
 
 // Define methods
 //void Pre_filter() {} // Remove 50Hz and DC from extracted data
@@ -55,23 +60,19 @@ int main(){
     		}
     		
     		// Define fir filters for each trial (arm and wrist) and initialize 
-    		// read fir coefficient
+    		// Read fir coefficient
 			Fir1 *ch1_fir_filter = new Fir1("firCoefficient.dat"); // chanel 1
 			Fir1 *ch2_fir_filter = new Fir1("firCoefficient.dat"); // chanel 2
 			 
 			// Extracted signals
 			double data_time, ch1_raw_data, ch2_raw_data; // colmun 1,2,3
 			
-			// Define and initialize deep Neural Network
-			int nNeurons[NLAYERS]={N10, N9, N8, N7, N6, N5, N4, N3, N2, N1, N0};
-			int* numNeuronsP = nNeurons;
-			int num_inputs = outerDelayLineLength;
+			//initialize deep Neural Network
 			Net* NN = new Net(NLAYERS, numNeuronsP, num_inputs, subject, trials[trial]);
 			NN->initNetwork(Neuron::W_RANDOM, Neuron::B_RANDOM, Neuron::Act_Sigmoid);
 			
 			// Define inputs queue of DNN
 			double dnn_inputs[num_inputs] = {};
-			//double* dnn_inputs_queue_pointer;
 			
 			int count = 0;
     		// Read Raw data from tsv file
@@ -86,10 +87,10 @@ int main(){
             		dnn_inputs[i] = dnn_inputs[i-1];
         		}
         		dnn_inputs[0] = ch2_filtered_data;
-        		double* dnn_inputs_point = &dnn_inputs[0];
+        		double* dnn_inputs_pointer = &dnn_inputs[0];
     			
     			// Input Chanel 2 into Network
-    			NN->setInputs(dnn_inputs_point);
+    			NN->setInputs(dnn_inputs_pointer);
 				NN->propInputs();
     
     			//Remover
@@ -108,27 +109,12 @@ int main(){
 				fprintf(output_outfile, "%lf %lf %lf %lf %lf\n", data_time, feedback, remover, ch1_filtered_data, ch2_filtered_data);// Time Output Remover ch1 filtered data ch2 filtered data 
 				//printf("Sample: %d, ch2Raw:%lf, DNNInput: %lf, DNNoutput: %lf\n", count, ch2_raw_data , ch2_filtered_data,remover);
 			}
+			
+			// Close file stream
+			fclose(data_infile);
+			fclose(output_outfile);
 		}
-
-	
-	
-	
-		//initiate Neuronal Network
-		/*
-		NN_ARM->initNetwork(Neuron::W_RANDOM, Neuron::B_RANDOM, Neuron::Act_Sigmoid);
-		NN_WRIST->initNetwork(Neuron::W_RANDOM, Neuron::B_RANDOM, Neuron::Act_Sigmoid);
-	
-	
-		const double inputs[num_inputs] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-		const double* inp = inputs;
-		NN->setInputs(inp);
-		NN->propInputs();
-		double remover = NN->getOutput(0);
-	
-		NN->printNetwork();
-		printf("%f",remover);*/
 	}
-
 	return 0;
 }
 

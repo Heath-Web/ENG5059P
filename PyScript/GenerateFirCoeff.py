@@ -16,7 +16,7 @@ ntaps = 250
 cf = np.arange(0, ntaps/2 + 1, 1) / fs * 2
 
 # generate coefficient
-fir_coefficient = sig.firwin(ntaps-1, [cf[2], cf[45], cf[55]], window='hamming', pass_zero=False)
+fir_coefficient = sig.firwin(ntaps-1, [cf[5], cf[45], cf[55]], window='hamming', pass_zero=False)
 # Save
 np.savetxt('../firCoefficient.dat', fir_coefficient)
 
