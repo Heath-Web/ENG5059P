@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/heath/Study/Project/ENG5059P
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/ecg_filter.dir/all
+all: CMakeFiles/ecg_filter_demo.dir/all
 all: DNF/all
 .PHONY : all
 
@@ -72,7 +72,7 @@ preinstall: DNF/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/ecg_filter.dir/clean
+clean: CMakeFiles/ecg_filter_demo.dir/clean
 clean: DNF/clean
 .PHONY : clean
 
@@ -92,30 +92,30 @@ DNF/clean: DNF/CMakeFiles/CLDL.dir/clean
 .PHONY : DNF/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ecg_filter.dir
+# Target rules for target CMakeFiles/ecg_filter_demo.dir
 
 # All Build rule for target.
-CMakeFiles/ecg_filter.dir/all: DNF/CMakeFiles/CLDL.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter.dir/build.make CMakeFiles/ecg_filter.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter.dir/build.make CMakeFiles/ecg_filter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/heath/Study/Project/ENG5059P/CMakeFiles --progress-num=5,6 "Built target ecg_filter"
-.PHONY : CMakeFiles/ecg_filter.dir/all
+CMakeFiles/ecg_filter_demo.dir/all: DNF/CMakeFiles/CLDL.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/heath/Study/Project/ENG5059P/CMakeFiles --progress-num=5,6,7 "Built target ecg_filter_demo"
+.PHONY : CMakeFiles/ecg_filter_demo.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ecg_filter.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/heath/Study/Project/ENG5059P/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ecg_filter.dir/all
+CMakeFiles/ecg_filter_demo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/heath/Study/Project/ENG5059P/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ecg_filter_demo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/heath/Study/Project/ENG5059P/CMakeFiles 0
-.PHONY : CMakeFiles/ecg_filter.dir/rule
+.PHONY : CMakeFiles/ecg_filter_demo.dir/rule
 
 # Convenience name for target.
-ecg_filter: CMakeFiles/ecg_filter.dir/rule
-.PHONY : ecg_filter
+ecg_filter_demo: CMakeFiles/ecg_filter_demo.dir/rule
+.PHONY : ecg_filter_demo
 
 # clean rule for target.
-CMakeFiles/ecg_filter.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter.dir/build.make CMakeFiles/ecg_filter.dir/clean
-.PHONY : CMakeFiles/ecg_filter.dir/clean
+CMakeFiles/ecg_filter_demo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/clean
+.PHONY : CMakeFiles/ecg_filter_demo.dir/clean
 
 #=============================================================================
 # Target rules for target DNF/CMakeFiles/CLDL.dir

@@ -154,7 +154,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=ecg_filter
+CMAKE_PROJECT_NAME:STATIC=ecg_filter_demo
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -226,6 +226,15 @@ ecg_filter_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 ecg_filter_SOURCE_DIR:STATIC=/home/heath/Study/Project/ENG5059P
+
+//Value Computed by CMake
+ecg_filter_demo_BINARY_DIR:STATIC=/home/heath/Study/Project/ENG5059P
+
+//Value Computed by CMake
+ecg_filter_demo_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+ecg_filter_demo_SOURCE_DIR:STATIC=/home/heath/Study/Project/ENG5059P
 
 
 ########################

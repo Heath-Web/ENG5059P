@@ -117,17 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ecg_filter
+# Target rules for targets named ecg_filter_demo
 
 # Build rule for target.
-ecg_filter: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ecg_filter
-.PHONY : ecg_filter
+ecg_filter_demo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ecg_filter_demo
+.PHONY : ecg_filter_demo
 
 # fast build rule for target.
-ecg_filter/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter.dir/build.make CMakeFiles/ecg_filter.dir/build
-.PHONY : ecg_filter/fast
+ecg_filter_demo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/build
+.PHONY : ecg_filter_demo/fast
 
 #=============================================================================
 # Target rules for targets named CLDL
@@ -147,7 +147,7 @@ ecg_filter.o: ecg_filter.cpp.o
 
 # target to build an object file
 ecg_filter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter.dir/build.make CMakeFiles/ecg_filter.dir/ecg_filter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/ecg_filter.cpp.o
 .PHONY : ecg_filter.cpp.o
 
 ecg_filter.i: ecg_filter.cpp.i
@@ -155,7 +155,7 @@ ecg_filter.i: ecg_filter.cpp.i
 
 # target to preprocess a source file
 ecg_filter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter.dir/build.make CMakeFiles/ecg_filter.dir/ecg_filter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/ecg_filter.cpp.i
 .PHONY : ecg_filter.cpp.i
 
 ecg_filter.s: ecg_filter.cpp.s
@@ -163,8 +163,32 @@ ecg_filter.s: ecg_filter.cpp.s
 
 # target to generate assembly for a file
 ecg_filter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter.dir/build.make CMakeFiles/ecg_filter.dir/ecg_filter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/ecg_filter.cpp.s
 .PHONY : ecg_filter.cpp.s
+
+ecg_filter_demo.o: ecg_filter_demo.cpp.o
+.PHONY : ecg_filter_demo.o
+
+# target to build an object file
+ecg_filter_demo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/ecg_filter_demo.cpp.o
+.PHONY : ecg_filter_demo.cpp.o
+
+ecg_filter_demo.i: ecg_filter_demo.cpp.i
+.PHONY : ecg_filter_demo.i
+
+# target to preprocess a source file
+ecg_filter_demo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/ecg_filter_demo.cpp.i
+.PHONY : ecg_filter_demo.cpp.i
+
+ecg_filter_demo.s: ecg_filter_demo.cpp.s
+.PHONY : ecg_filter_demo.s
+
+# target to generate assembly for a file
+ecg_filter_demo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/ecg_filter_demo.cpp.s
+.PHONY : ecg_filter_demo.cpp.s
 
 # Help Target
 help:
@@ -175,10 +199,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CLDL"
-	@echo "... ecg_filter"
+	@echo "... ecg_filter_demo"
 	@echo "... ecg_filter.o"
 	@echo "... ecg_filter.i"
 	@echo "... ecg_filter.s"
+	@echo "... ecg_filter_demo.o"
+	@echo "... ecg_filter_demo.i"
+	@echo "... ecg_filter_demo.s"
 .PHONY : help
 
 
