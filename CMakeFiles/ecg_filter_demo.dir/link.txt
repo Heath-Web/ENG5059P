@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/ecg_filter_demo.dir/ecg_filter_demo.cpp.o CMakeFiles/ecg_filter_demo.dir/ecg_filter.cpp.o -o ecg_filter_demo  DNF/libCLDL.a -lfir 

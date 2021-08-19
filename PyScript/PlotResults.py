@@ -19,18 +19,19 @@ import numpy as np
 
 # Parameters
 # Define subject number(1, 2 or relax), trails(arm, wrist)
-sbjct_num = "1" # "1", "2" or "relax"
-trail = "arm" # "arm" or "wrist"
+sbjct_num = "2" # "1", "2" or "relax"
+trail = "wrist" # "arm" or "wrist"
 
 fs = 250
-plotMaxLength = 400
+plotMaxLength = 1000
 
 def Read_data():
     # Load data
     raw_data = np.loadtxt("../Data/RawData/" + ("" if (sbjct_num == "relax") else "data_") + ("relax" if (sbjct_num == "relax") else trail) + "_" + (trail if (sbjct_num == "relax") else sbjct_num) + ".tsv")[:,[0,7,8]]
     results_data = np.loadtxt(("../Data/Output/output_" + ("relax" if (sbjct_num == "relax") else trail) + "_" + (trail if (sbjct_num == "relax") else sbjct_num) + ".tsv"))
-    output = results_data[:,1]
-    remover = results_data[:,2]
+
+    remover = results_data[:,1]
+    output = results_data[:,2]
     filtered_data = results_data[:,[3,4]]
     return raw_data,filtered_data, remover, output
 
@@ -44,16 +45,22 @@ def InitializeGUI():
     # Subplots
     ax1 = figure.add_subplot(3, 2, 1)
     plt.title("Chanel 1 raw data")
+    plt.grid(True)
     ax2 = figure.add_subplot(3, 2, 2)
     plt.title("Chanel 2 raw data")
+    plt.grid(True)
     ax3 = figure.add_subplot(3, 2, 3)
     plt.title("Chanel 1 filtered data")
+    plt.grid(True)
     ax4 = figure.add_subplot(3, 2, 4)
     plt.title("Chanel 2 filtered data")
+    plt.grid(True)
     ax5 = figure.add_subplot(3, 2, 5)
     plt.title("DNF remover")
+    plt.grid(True)
     ax6 = figure.add_subplot(3, 2, 6)
     plt.title("Output")
+    plt.grid(True)
     ax = [ax1,ax2,ax3,ax4,ax5,ax6]
     return figure, ax
 
@@ -106,7 +113,9 @@ def Dynamic_plot(fig, ax, raw_data, filtered_data, remover, output):
         line3.set_data(t_x, filtered_data[0 + i:plotMaxLength + i, 0])
         line4.set_data(t_x, filtered_data[0 + i:plotMaxLength + i, 1])
         line5.set_data(t_x, remover[0 + i:plotMaxLength + i])
+        ax[4].set_ylim(min(remover[0 + i:plotMaxLength + i]), max(remover[0 + i:plotMaxLength + i]))
         line6.set_data(t_x, output[0 + i:plotMaxLength + i])
+
         return line1, line2, line3, line4, line5, line6,
     return animate
 

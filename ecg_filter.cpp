@@ -7,17 +7,20 @@ ecg_filter::ecg_filter(int _dnn_nLayers, int *_dnn_nNeurons,const int _dnn_nInpu
 	// Initialize Neuron Network
 	NN = new Net(_dnn_nLayers, _dnn_nNeurons, _dnn_nInputs, _subject, _trial);
 	//NN->initNetwork(Neuron::W_ZEROS, Neuron::B_NONE, Neuron::Act_Sigmoid);
+	//NN->initNetwork(Neuron::W_ZEROS, Neuron::B_NONE, Neuron::Act_Tanh);
 	NN->initNetwork(Neuron::W_RANDOM, Neuron::B_RANDOM, Neuron::Act_Sigmoid);
 	//NN->initNetwork(Neuron::W_ONES, Neuron::B_NONE, Neuron::Act_Sigmoid);
 	
 	// initialize dnn inputs delay line
-	static double _inputs[outerDelayLineLength] = {};
+	static double _inputs[Inputs_Num] = {};
+	static double _ch1_inputs[Inputs_Num] = {};
 	dnn_inputs = _inputs;
+	ch1_inputs = _ch1_inputs;
 	
 	// Initailize fir filter for prefiltering 
 	if (fopen("firCoefficient.dat","r")) {
-		ch1_fir_prefilter = new Fir1("firCoefficient.dat"); // channel 1
-		ch2_fir_prefilter = new Fir1("firCoefficient.dat"); // channel 2
+		ch1_fir_prefilter = new Fir1("CH1firCoeff.dat"); // channel 1
+		ch2_fir_prefilter = new Fir1("CH2firCoeff.dat"); // channel 2
 	} else{
 		ch1_fir_prefilter = NULL;
 		ch2_fir_prefilter = NULL;
@@ -63,14 +66,21 @@ double ecg_filter::filter(double _signal, double _noise){
 	    ch1_data = ch1_filtered_data;
 	    ch2_data = ch2_filtered_data; 
 	} else {
-		cout << "Can't find Fir filter coefficient file \"firCoefficient.dat\" " << endl;
+		cout << "Can't find Fir filter coefficient file \"CH1firCoeff.dat and CH2firCoeff.dat\" " << endl;
 		exit(1); // terminate
-	}	 
+	}
 	
-	double num_inputs = NN->getnInputs();	
+	int num_inputs = NN->getnInputs();
+	// channel 1 delay line
+	for (int i = num_inputs-1 ; i > 0; i--){ 
+        ch1_inputs[i] = ch1_inputs[i-1];
+    }
+    ch1_inputs[0] = ch1_data;
+    ch1_data = ch1_inputs[num_inputs-1];
+    //cout << num_inputs << ch1_data << endl;
+	
+	// Chanel 2 Delay line	
 	//cout << num_inputs << "||" << ch2_filtered_data << "  :: " << ch2_data << " ]]]] ";				
-    // Chanel 2 Delay line
-    
     for (int i = num_inputs-1 ; i > 0; i--){ 
         dnn_inputs[i] = dnn_inputs[i-1];
     }
@@ -137,26 +147,3 @@ void ecg_filter::setGains(double _ch1_gain, double _ch2_gain, double _remover_ga
 	feedback_gain = _feedback_gain;
 }
 
-/*
-void ecg_filter::setOutputFile(string _output_file_name){
-	if (output_outfile != NULL){
-		fclose(output_outfile);
-	}
-	output_outfile = fopen(_output_file_name.c_str(),"w");
-	if (!output_outfile) {
-	    cout << "Unable to open file" << _output_file_name << endl;
-   	   	exit(1); // terminate with error
-    }
-}
-
-void ecg_filter::setInputFile(string _data_file_name){
-	if (data_infile != NULL){
-		fclose(data_infile);
-	} 
-	data_infile = fopen(_data_file_name.c_str(), "rt");	
-	if (!data_infile) {
-        cout << "Unable to open file" << _data_file_name << endl;
-   	   	exit(1); // terminate with error
-    }	
-			
-}*/

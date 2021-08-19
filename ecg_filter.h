@@ -7,6 +7,7 @@
 #include <string>
 #include <string.h>
 #include <stdio.h>
+#include "parameters.h"
 
 #ifndef ECG_FILTER_H
 #define ECG_FILTER_H
@@ -122,6 +123,9 @@ private:
 	// DNN inputs delay line
 	double *dnn_inputs;
 	
+	// Channel 1 delay line
+	double *ch1_inputs;
+	
 	// Extracted signals
 	double data_time = 0, ch1_data = 0, ch2_data = 0; // colmun 1,2,3
 	
@@ -142,9 +146,9 @@ private:
 	double output = 0;
 	
 	// Gains (default value)
-	double ch1_gain = 100;
-    double ch2_gain = 100;
-    double remover_gain = 10;
+	double ch1_gain = 1;
+    double ch2_gain = 1;
+    double remover_gain = 1;
     double feedback_gain = 1;
 	
 };

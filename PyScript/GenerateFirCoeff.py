@@ -15,20 +15,33 @@ fs = 250
 ntaps = 250
 cf = np.arange(0, ntaps/2 + 1, 1) / fs * 2
 
-# generate coefficient
-fir_coefficient = sig.firwin(ntaps-1, [cf[5], cf[45], cf[55]], window='hamming', pass_zero=False)
+# generate coefficient for channel 1
+ch1_fir_coefficient = sig.firwin(ntaps-1, [cf[2], cf[45], cf[55]], window='hamming', pass_zero=False)
+# generate coefficient for channel 2
+ch2_fir_coefficient = sig.firwin(ntaps-1, [cf[5], cf[45], cf[55]], window='hamming', pass_zero=False)
 # Save
-np.savetxt('../firCoefficient.dat', fir_coefficient)
+np.savetxt('../CH1firCoeff.dat', ch1_fir_coefficient)
+np.savetxt('../CH2firCoeff.dat', ch2_fir_coefficient)
+
 
 # plot frequency domain and time domain
-fft = np.fft.fft(fir_coefficient)
-fig1 = plt.figure(1)
+fft1 = np.fft.fft(ch1_fir_coefficient)
+fig1 = plt.figure("Fir coefficient for channel 1")
 ax1 = fig1.add_subplot(121)
-plot1 = ax1.plot(np.real(fft))
+plot1 = ax1.plot(np.real(fft1))
 plt.title("Frequency domain")
-
 ax2 = fig1.add_subplot(122)
-plot2 = ax2.plot(fir_coefficient)
+plot2 = ax2.plot(ch1_fir_coefficient)
 plt.title("Time domain")
+
+fft2 = np.fft.fft(ch2_fir_coefficient)
+fig2 = plt.figure("Fir coefficient for channel 2")
+ax3 = fig2.add_subplot(121)
+ax3.plot(np.real(fft2))
+plt.title("Frequency domain")
+ax4 = fig2.add_subplot(122)
+ax4.plot(ch2_fir_coefficient)
+plt.title("Time domain")
+
 plt.show()
 

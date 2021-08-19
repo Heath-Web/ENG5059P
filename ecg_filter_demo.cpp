@@ -1,10 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <stdio.h>
-#include <Fir1.h>
-#include "parameters.h"
-
+// The only head file you need to include 
 #include "ecg_filter.h"
 
 using namespace std;
@@ -16,17 +10,14 @@ const int num_trials = 2; //as arm and wrist
 string trials[num_trials] = {"arm","wrist"};
 
 // Define Neuron Network
-int nNeurons[NLAYERS]={N9,N8,N7,N6,N5,N4,N3,N2,N1,N0};
+int nNeurons[NLAYERS]={N5,N4,N3,N2,N1,N0};
 int* numNeuronsP = nNeurons;
-const int num_inputs = outerDelayLineLength;
-double gains[4] = {100,30,10,1};
+const int num_inputs = Inputs_Num;
+double gains[4] = {1,1,100,0.01};// channel 1 gain, channel 2 gain, remover gain and feedback gain
 
 // Define Learning Rate of DNN
-double w_learningRate = 1;
+double w_learningRate = 10;
 double b_learningRate = 2;
-
-// Define methods
-//void Pre_filter() {} // Remove 50Hz and DC from extracted data
 
 ecg_filter *filter1;
 
@@ -37,9 +28,9 @@ int main(){
 		cout << nNeurons[k] << " ;  ";
 	}
 	cout << endl;
-	cout << "Inputs : " << outerDelayLineLength << endl; 
+	cout << "Inputs : " << Inputs_Num << endl; 
 	for (int subject = 0; subject <= num_subjects; subject++) { // for each subject
-		string str_subject = std::to_string(subject+1); // convert data formatb
+		string str_subject = std::to_string(subject+1); // convert data format
 		if (subject == num_subjects ){
 			cout << "Subject : Relax" << endl;
 		} else {
@@ -103,6 +94,7 @@ int main(){
 	}
 	return 0;
 }
+
 /*
 #include <iostream>
 #include <fstream>
