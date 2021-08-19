@@ -18,7 +18,7 @@ ecg_filter::ecg_filter(int _dnn_nLayers, int *_dnn_nNeurons,const int _dnn_nInpu
 	ch1_inputs = _ch1_inputs;
 	
 	// Initailize fir filter for prefiltering 
-	if (fopen("firCoefficient.dat","r")) {
+	if (fopen("CH1firCoeff.dat","r")) {
 		ch1_fir_prefilter = new Fir1("CH1firCoeff.dat"); // channel 1
 		ch2_fir_prefilter = new Fir1("CH2firCoeff.dat"); // channel 2
 	} else{

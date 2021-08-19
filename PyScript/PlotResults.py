@@ -30,8 +30,8 @@ def Read_data():
     raw_data = np.loadtxt("../Data/RawData/" + ("" if (sbjct_num == "relax") else "data_") + ("relax" if (sbjct_num == "relax") else trail) + "_" + (trail if (sbjct_num == "relax") else sbjct_num) + ".tsv")[:,[0,7,8]]
     results_data = np.loadtxt(("../Data/Output/output_" + ("relax" if (sbjct_num == "relax") else trail) + "_" + (trail if (sbjct_num == "relax") else sbjct_num) + ".tsv"))
 
-    remover = results_data[:,1]
-    output = results_data[:,2]
+    remover = results_data[:,2]
+    output = results_data[:,1]
     filtered_data = results_data[:,[3,4]]
     return raw_data,filtered_data, remover, output
 

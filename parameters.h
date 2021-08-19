@@ -5,7 +5,7 @@
 #define LMS_LEARNING_RATE 0.1
 
 // NOISE:
-#define Inputs_Num 1
+#define Inputs_Num 39
 
 //NN specifications
 #define DoDeepLearning
