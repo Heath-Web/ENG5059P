@@ -1,4 +1,4 @@
-# Install script for directory: /home/heath/Study/Project/ENG5059P/DNF
+# Install script for directory: /home/heath/ENG5059P/DNF
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

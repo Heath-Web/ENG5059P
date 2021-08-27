@@ -18,7 +18,11 @@ cf = np.arange(0, ntaps/2 + 1, 1) / fs * 2
 # generate coefficient for channel 1
 ch1_fir_coefficient = sig.firwin(ntaps-1, [cf[2], cf[45], cf[55]], window='hamming', pass_zero=False)
 # generate coefficient for channel 2
+<<<<<<< HEAD
 ch2_fir_coefficient = sig.firwin(ntaps-1, [cf[5], cf[45], cf[55]], window='hamming', pass_zero=False)
+=======
+ch2_fir_coefficient = sig.firwin(ntaps-1, [cf[10], cf[45], cf[55]], window='hamming', pass_zero=False)
+>>>>>>> dev
 # Save
 np.savetxt('../CH1firCoeff.dat', ch1_fir_coefficient)
 np.savetxt('../CH2firCoeff.dat', ch2_fir_coefficient)
