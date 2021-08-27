@@ -5,6 +5,7 @@
 #define LMS_LEARNING_RATE 0.1
 
 // NOISE:
+<<<<<<< HEAD
 #define Inputs_Num 1
 
 //NN specifications
@@ -17,6 +18,15 @@
 //#define N8 63 //8
 //#define N7 37 //7
 //#define N6 19 //6
+=======
+#define Inputs_Num 45
+
+//NN specifications
+#define DoDeepLearning
+#define NLAYERS 7
+
+#define N6 39 //6
+>>>>>>> dev
 #define N5 27 //5
 #define N4 13  //4
 #define N3 7 //3

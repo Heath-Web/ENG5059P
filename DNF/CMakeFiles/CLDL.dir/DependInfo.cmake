@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/heath/Study/Project/ENG5059P/DNF/lib/Layer.cpp" "DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o" "gcc" "DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o.d"
-  "/home/heath/Study/Project/ENG5059P/DNF/lib/Net.cpp" "DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o" "gcc" "DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o.d"
-  "/home/heath/Study/Project/ENG5059P/DNF/lib/Neuron.cpp" "DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o" "gcc" "DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o.d"
+  "/home/heath/ENG5059P/DNF/lib/Layer.cpp" "DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o" "gcc" "DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o.d"
+  "/home/heath/ENG5059P/DNF/lib/Net.cpp" "DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o" "gcc" "DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o.d"
+  "/home/heath/ENG5059P/DNF/lib/Neuron.cpp" "DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o" "gcc" "DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o.d"
   )
 
 # Targets to which this target links.

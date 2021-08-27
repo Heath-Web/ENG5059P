@@ -1,8 +1,6 @@
 DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o: \
- /home/heath/Study/Project/ENG5059P/DNF/lib/Neuron.cpp \
- /usr/include/stdc-predef.h \
- /home/heath/Study/Project/ENG5059P/DNF/include/cldl/Neuron.h \
- /usr/include/stdio.h \
+ /home/heath/ENG5059P/DNF/lib/Neuron.cpp /usr/include/stdc-predef.h \
+ /home/heath/ENG5059P/DNF/include/cldl/Neuron.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \

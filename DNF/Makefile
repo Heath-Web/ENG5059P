@@ -57,10 +57,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/heath/Study/Project/ENG5059P
+CMAKE_SOURCE_DIR = /home/heath/ENG5059P
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/heath/Study/Project/ENG5059P
+CMAKE_BINARY_DIR = /home/heath/ENG5059P
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/heath/Study/Project/ENG5059P && $(CMAKE_COMMAND) -E cmake_progress_start /home/heath/Study/Project/ENG5059P/CMakeFiles /home/heath/Study/Project/ENG5059P/DNF//CMakeFiles/progress.marks
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/heath/Study/Project/ENG5059P/CMakeFiles 0
+	cd /home/heath/ENG5059P && $(CMAKE_COMMAND) -E cmake_progress_start /home/heath/ENG5059P/CMakeFiles /home/heath/ENG5059P/DNF//CMakeFiles/progress.marks
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/heath/ENG5059P/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/clean
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/preinstall
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/preinstall
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/heath/Study/Project/ENG5059P && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/heath/ENG5059P && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 DNF/CMakeFiles/CLDL.dir/rule:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/CMakeFiles/CLDL.dir/rule
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DNF/CMakeFiles/CLDL.dir/rule
 .PHONY : DNF/CMakeFiles/CLDL.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ CLDL: DNF/CMakeFiles/CLDL.dir/rule
 
 # fast build rule for target.
 CLDL/fast:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/build
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/build
 .PHONY : CLDL/fast
 
 lib/Layer.o: lib/Layer.cpp.o
@@ -135,7 +135,7 @@ lib/Layer.o: lib/Layer.cpp.o
 
 # target to build an object file
 lib/Layer.cpp.o:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o
 .PHONY : lib/Layer.cpp.o
 
 lib/Layer.i: lib/Layer.cpp.i
@@ -143,7 +143,7 @@ lib/Layer.i: lib/Layer.cpp.i
 
 # target to preprocess a source file
 lib/Layer.cpp.i:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.i
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.i
 .PHONY : lib/Layer.cpp.i
 
 lib/Layer.s: lib/Layer.cpp.s
@@ -151,7 +151,7 @@ lib/Layer.s: lib/Layer.cpp.s
 
 # target to generate assembly for a file
 lib/Layer.cpp.s:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.s
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.s
 .PHONY : lib/Layer.cpp.s
 
 lib/Net.o: lib/Net.cpp.o
@@ -159,7 +159,7 @@ lib/Net.o: lib/Net.cpp.o
 
 # target to build an object file
 lib/Net.cpp.o:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o
 .PHONY : lib/Net.cpp.o
 
 lib/Net.i: lib/Net.cpp.i
@@ -167,7 +167,7 @@ lib/Net.i: lib/Net.cpp.i
 
 # target to preprocess a source file
 lib/Net.cpp.i:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.i
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.i
 .PHONY : lib/Net.cpp.i
 
 lib/Net.s: lib/Net.cpp.s
@@ -175,7 +175,7 @@ lib/Net.s: lib/Net.cpp.s
 
 # target to generate assembly for a file
 lib/Net.cpp.s:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.s
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.s
 .PHONY : lib/Net.cpp.s
 
 lib/Neuron.o: lib/Neuron.cpp.o
@@ -183,7 +183,7 @@ lib/Neuron.o: lib/Neuron.cpp.o
 
 # target to build an object file
 lib/Neuron.cpp.o:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o
 .PHONY : lib/Neuron.cpp.o
 
 lib/Neuron.i: lib/Neuron.cpp.i
@@ -191,7 +191,7 @@ lib/Neuron.i: lib/Neuron.cpp.i
 
 # target to preprocess a source file
 lib/Neuron.cpp.i:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.i
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.i
 .PHONY : lib/Neuron.cpp.i
 
 lib/Neuron.s: lib/Neuron.cpp.s
@@ -199,7 +199,7 @@ lib/Neuron.s: lib/Neuron.cpp.s
 
 # target to generate assembly for a file
 lib/Neuron.cpp.s:
-	cd /home/heath/Study/Project/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.s
+	cd /home/heath/ENG5059P && $(MAKE) $(MAKESILENT) -f DNF/CMakeFiles/CLDL.dir/build.make DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.s
 .PHONY : lib/Neuron.cpp.s
 
 # Help Target
@@ -231,6 +231,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/heath/Study/Project/ENG5059P && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/heath/ENG5059P && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

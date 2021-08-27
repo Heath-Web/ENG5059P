@@ -53,10 +53,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/heath/Study/Project/ENG5059P
+CMAKE_SOURCE_DIR = /home/heath/ENG5059P
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/heath/Study/Project/ENG5059P
+CMAKE_BINARY_DIR = /home/heath/ENG5059P
 
 # Include any dependencies generated for this target.
 include DNF/CMakeFiles/CLDL.dir/depend.make
@@ -72,44 +72,44 @@ include DNF/CMakeFiles/CLDL.dir/flags.make
 DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o: DNF/CMakeFiles/CLDL.dir/flags.make
 DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o: DNF/lib/Layer.cpp
 DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o: DNF/CMakeFiles/CLDL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/heath/Study/Project/ENG5059P/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o"
-	cd /home/heath/Study/Project/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o -MF CMakeFiles/CLDL.dir/lib/Layer.cpp.o.d -o CMakeFiles/CLDL.dir/lib/Layer.cpp.o -c /home/heath/Study/Project/ENG5059P/DNF/lib/Layer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/heath/ENG5059P/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o"
+	cd /home/heath/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.o -MF CMakeFiles/CLDL.dir/lib/Layer.cpp.o.d -o CMakeFiles/CLDL.dir/lib/Layer.cpp.o -c /home/heath/ENG5059P/DNF/lib/Layer.cpp
 
 DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CLDL.dir/lib/Layer.cpp.i"
-	cd /home/heath/Study/Project/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/heath/Study/Project/ENG5059P/DNF/lib/Layer.cpp > CMakeFiles/CLDL.dir/lib/Layer.cpp.i
+	cd /home/heath/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/heath/ENG5059P/DNF/lib/Layer.cpp > CMakeFiles/CLDL.dir/lib/Layer.cpp.i
 
 DNF/CMakeFiles/CLDL.dir/lib/Layer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CLDL.dir/lib/Layer.cpp.s"
-	cd /home/heath/Study/Project/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/heath/Study/Project/ENG5059P/DNF/lib/Layer.cpp -o CMakeFiles/CLDL.dir/lib/Layer.cpp.s
+	cd /home/heath/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/heath/ENG5059P/DNF/lib/Layer.cpp -o CMakeFiles/CLDL.dir/lib/Layer.cpp.s
 
 DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o: DNF/CMakeFiles/CLDL.dir/flags.make
 DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o: DNF/lib/Net.cpp
 DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o: DNF/CMakeFiles/CLDL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/heath/Study/Project/ENG5059P/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o"
-	cd /home/heath/Study/Project/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o -MF CMakeFiles/CLDL.dir/lib/Net.cpp.o.d -o CMakeFiles/CLDL.dir/lib/Net.cpp.o -c /home/heath/Study/Project/ENG5059P/DNF/lib/Net.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/heath/ENG5059P/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o"
+	cd /home/heath/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o -MF CMakeFiles/CLDL.dir/lib/Net.cpp.o.d -o CMakeFiles/CLDL.dir/lib/Net.cpp.o -c /home/heath/ENG5059P/DNF/lib/Net.cpp
 
 DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CLDL.dir/lib/Net.cpp.i"
-	cd /home/heath/Study/Project/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/heath/Study/Project/ENG5059P/DNF/lib/Net.cpp > CMakeFiles/CLDL.dir/lib/Net.cpp.i
+	cd /home/heath/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/heath/ENG5059P/DNF/lib/Net.cpp > CMakeFiles/CLDL.dir/lib/Net.cpp.i
 
 DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CLDL.dir/lib/Net.cpp.s"
-	cd /home/heath/Study/Project/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/heath/Study/Project/ENG5059P/DNF/lib/Net.cpp -o CMakeFiles/CLDL.dir/lib/Net.cpp.s
+	cd /home/heath/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/heath/ENG5059P/DNF/lib/Net.cpp -o CMakeFiles/CLDL.dir/lib/Net.cpp.s
 
 DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o: DNF/CMakeFiles/CLDL.dir/flags.make
 DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o: DNF/lib/Neuron.cpp
 DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o: DNF/CMakeFiles/CLDL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/heath/Study/Project/ENG5059P/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o"
-	cd /home/heath/Study/Project/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o -MF CMakeFiles/CLDL.dir/lib/Neuron.cpp.o.d -o CMakeFiles/CLDL.dir/lib/Neuron.cpp.o -c /home/heath/Study/Project/ENG5059P/DNF/lib/Neuron.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/heath/ENG5059P/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o"
+	cd /home/heath/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o -MF CMakeFiles/CLDL.dir/lib/Neuron.cpp.o.d -o CMakeFiles/CLDL.dir/lib/Neuron.cpp.o -c /home/heath/ENG5059P/DNF/lib/Neuron.cpp
 
 DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CLDL.dir/lib/Neuron.cpp.i"
-	cd /home/heath/Study/Project/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/heath/Study/Project/ENG5059P/DNF/lib/Neuron.cpp > CMakeFiles/CLDL.dir/lib/Neuron.cpp.i
+	cd /home/heath/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/heath/ENG5059P/DNF/lib/Neuron.cpp > CMakeFiles/CLDL.dir/lib/Neuron.cpp.i
 
 DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CLDL.dir/lib/Neuron.cpp.s"
-	cd /home/heath/Study/Project/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/heath/Study/Project/ENG5059P/DNF/lib/Neuron.cpp -o CMakeFiles/CLDL.dir/lib/Neuron.cpp.s
+	cd /home/heath/ENG5059P/DNF && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/heath/ENG5059P/DNF/lib/Neuron.cpp -o CMakeFiles/CLDL.dir/lib/Neuron.cpp.s
 
 # Object files for target CLDL
 CLDL_OBJECTS = \
@@ -125,19 +125,19 @@ DNF/libCLDL.a: DNF/CMakeFiles/CLDL.dir/lib/Net.cpp.o
 DNF/libCLDL.a: DNF/CMakeFiles/CLDL.dir/lib/Neuron.cpp.o
 DNF/libCLDL.a: DNF/CMakeFiles/CLDL.dir/build.make
 DNF/libCLDL.a: DNF/CMakeFiles/CLDL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/heath/Study/Project/ENG5059P/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libCLDL.a"
-	cd /home/heath/Study/Project/ENG5059P/DNF && $(CMAKE_COMMAND) -P CMakeFiles/CLDL.dir/cmake_clean_target.cmake
-	cd /home/heath/Study/Project/ENG5059P/DNF && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CLDL.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/heath/ENG5059P/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libCLDL.a"
+	cd /home/heath/ENG5059P/DNF && $(CMAKE_COMMAND) -P CMakeFiles/CLDL.dir/cmake_clean_target.cmake
+	cd /home/heath/ENG5059P/DNF && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CLDL.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 DNF/CMakeFiles/CLDL.dir/build: DNF/libCLDL.a
 .PHONY : DNF/CMakeFiles/CLDL.dir/build
 
 DNF/CMakeFiles/CLDL.dir/clean:
-	cd /home/heath/Study/Project/ENG5059P/DNF && $(CMAKE_COMMAND) -P CMakeFiles/CLDL.dir/cmake_clean.cmake
+	cd /home/heath/ENG5059P/DNF && $(CMAKE_COMMAND) -P CMakeFiles/CLDL.dir/cmake_clean.cmake
 .PHONY : DNF/CMakeFiles/CLDL.dir/clean
 
 DNF/CMakeFiles/CLDL.dir/depend:
-	cd /home/heath/Study/Project/ENG5059P && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/heath/Study/Project/ENG5059P /home/heath/Study/Project/ENG5059P/DNF /home/heath/Study/Project/ENG5059P /home/heath/Study/Project/ENG5059P/DNF /home/heath/Study/Project/ENG5059P/DNF/CMakeFiles/CLDL.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/heath/ENG5059P && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/heath/ENG5059P /home/heath/ENG5059P/DNF /home/heath/ENG5059P /home/heath/ENG5059P/DNF /home/heath/ENG5059P/DNF/CMakeFiles/CLDL.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : DNF/CMakeFiles/CLDL.dir/depend
 
