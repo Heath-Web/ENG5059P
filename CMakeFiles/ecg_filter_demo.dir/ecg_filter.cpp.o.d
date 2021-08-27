@@ -1,9 +1,7 @@
 CMakeFiles/ecg_filter_demo.dir/ecg_filter.cpp.o: \
- /home/heath/Study/Project/ENG5059P/ecg_filter.cpp \
- /usr/include/stdc-predef.h \
- /home/heath/Study/Project/ENG5059P/ecg_filter.h \
- /home/heath/Study/Project/ENG5059P/DNF/include/cldl/Neuron.h \
- /usr/include/stdio.h \
+ /home/heath/ENG5059P/ecg_filter.cpp /usr/include/stdc-predef.h \
+ /home/heath/ENG5059P/ecg_filter.h \
+ /home/heath/ENG5059P/DNF/include/cldl/Neuron.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -155,7 +153,7 @@ CMakeFiles/ecg_filter_demo.dir/ecg_filter.cpp.o: \
  /usr/include/c++/7/bits/stl_uninitialized.h \
  /usr/include/c++/7/bits/stl_vector.h \
  /usr/include/c++/7/bits/stl_bvector.h /usr/include/c++/7/bits/vector.tcc \
- /home/heath/Study/Project/ENG5059P/DNF/include/cldl/Layer.h \
- /home/heath/Study/Project/ENG5059P/DNF/include/cldl/Net.h \
- /usr/include/Fir1.h /usr/include/string.h /usr/include/strings.h \
- /home/heath/Study/Project/ENG5059P/parameters.h
+ /home/heath/ENG5059P/DNF/include/cldl/Layer.h \
+ /home/heath/ENG5059P/DNF/include/cldl/Net.h /usr/include/Fir1.h \
+ /usr/include/string.h /usr/include/strings.h \
+ /home/heath/ENG5059P/parameters.h

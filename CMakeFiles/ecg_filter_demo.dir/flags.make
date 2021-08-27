@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/heath/Study/Project/ENG5059P/DNF/include
+CXX_INCLUDES = -I/home/heath/ENG5059P/DNF/include
 
 CXX_FLAGS = -std=gnu++11
 

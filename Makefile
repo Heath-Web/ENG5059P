@@ -57,10 +57,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/heath/Study/Project/ENG5059P
+CMAKE_SOURCE_DIR = /home/heath/ENG5059P
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/heath/Study/Project/ENG5059P
+CMAKE_BINARY_DIR = /home/heath/ENG5059P
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/heath/Study/Project/ENG5059P/CMakeFiles /home/heath/Study/Project/ENG5059P//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/heath/ENG5059P/CMakeFiles /home/heath/ENG5059P//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/heath/Study/Project/ENG5059P/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/heath/ENG5059P/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,19 @@ ecg_filter_demo: cmake_check_build_system
 ecg_filter_demo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/build
 .PHONY : ecg_filter_demo/fast
+
+#=============================================================================
+# Target rules for targets named lms_filter_demo
+
+# Build rule for target.
+lms_filter_demo: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lms_filter_demo
+.PHONY : lms_filter_demo
+
+# fast build rule for target.
+lms_filter_demo/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lms_filter_demo.dir/build.make CMakeFiles/lms_filter_demo.dir/build
+.PHONY : lms_filter_demo/fast
 
 #=============================================================================
 # Target rules for targets named CLDL
@@ -190,6 +203,30 @@ ecg_filter_demo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ecg_filter_demo.dir/build.make CMakeFiles/ecg_filter_demo.dir/ecg_filter_demo.cpp.s
 .PHONY : ecg_filter_demo.cpp.s
 
+lms_filter_demo.o: lms_filter_demo.cpp.o
+.PHONY : lms_filter_demo.o
+
+# target to build an object file
+lms_filter_demo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lms_filter_demo.dir/build.make CMakeFiles/lms_filter_demo.dir/lms_filter_demo.cpp.o
+.PHONY : lms_filter_demo.cpp.o
+
+lms_filter_demo.i: lms_filter_demo.cpp.i
+.PHONY : lms_filter_demo.i
+
+# target to preprocess a source file
+lms_filter_demo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lms_filter_demo.dir/build.make CMakeFiles/lms_filter_demo.dir/lms_filter_demo.cpp.i
+.PHONY : lms_filter_demo.cpp.i
+
+lms_filter_demo.s: lms_filter_demo.cpp.s
+.PHONY : lms_filter_demo.s
+
+# target to generate assembly for a file
+lms_filter_demo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lms_filter_demo.dir/build.make CMakeFiles/lms_filter_demo.dir/lms_filter_demo.cpp.s
+.PHONY : lms_filter_demo.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -200,12 +237,16 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... CLDL"
 	@echo "... ecg_filter_demo"
+	@echo "... lms_filter_demo"
 	@echo "... ecg_filter.o"
 	@echo "... ecg_filter.i"
 	@echo "... ecg_filter.s"
 	@echo "... ecg_filter_demo.o"
 	@echo "... ecg_filter_demo.i"
 	@echo "... ecg_filter_demo.s"
+	@echo "... lms_filter_demo.o"
+	@echo "... lms_filter_demo.i"
+	@echo "... lms_filter_demo.s"
 .PHONY : help
 
 

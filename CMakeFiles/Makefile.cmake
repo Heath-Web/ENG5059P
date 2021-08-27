@@ -46,5 +46,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ecg_filter_demo.dir/DependInfo.cmake"
+  "CMakeFiles/lms_filter_demo.dir/DependInfo.cmake"
   "DNF/CMakeFiles/CLDL.dir/DependInfo.cmake"
   )

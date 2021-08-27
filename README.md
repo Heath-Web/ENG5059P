@@ -12,15 +12,22 @@ Additional relaxed data was recorded from subject 1 while the subject keep relax
 1. Install the *Fir1* library from _https://github.com/berndporr/fir1_ by running:
 
    ` sudo add-apt-repository ppa:berndporr/dsp `
-   ` sudo apt-get install fir1 ` 
+
+    `` sudo apt-get install fir1 ` 
+
    ` sudo apt-get install fir1-dev `
 
 2. Install `Cmake`
+
    `wget https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1.tar.gz`
+
    `tar -zxv -f cmake-3.21.1.tar.gz`
+
    `cd cmake-3.21.1`
+
    `./bootstrap`
    `make`
+
    `sudo make install`
 
    Alternatively,  install any `cmake` version beyond 3.1.0.
@@ -36,23 +43,42 @@ Additional relaxed data was recorded from subject 1 while the subject keep relax
 
 ## How to use ecg_filter class
 
-ecg_filter filter = new ecg_filter ()
+1. Make sure you have the *fircoefficient.dat* if not run *GerneratefirCoeff.py* in *PyScripts* folder
 
-ecg_filter->set
+2. Initialize an ecg filter : 
+
+   ```c++
+   ecg_filter(int _dnn_nLayers, int *_dnn_nNeurons,const int _dnn_nInputs, int _subject, string _trial);
+   ```
+
+3. Do filter operation (receive one sample and return one sample)：
+
+   ```c++
+   double filter(double _signal, double _noise);
+   ```
+
+4. For more functions , see the head file ecg_filter.h
 
 ## File Structure
 
+- CH1firCoeff.dat: The coefficients of the pre-filter for channel one
+- CH2firCoeff.dat: The coefficients of the pre-filter for channel two
+- CMakeLists.txt: Cmake file used to compiling the program
 - Parameters.h : The parameters of the demo program.
 - ecg_filter_demo : demo program of using ecg filter 
-- ecg_filter.h and ecg_filter.cpp : head file and implementation file of ecg filter Class  
+- ecg_filter.h and ecg_filter.cpp : head file and implementation file of ecg filter Class 
+- lms_filter_demo: demo program of using LMS algorithm
+- README.md: User manual
 - Data :
-  - RawData :  The raw data recorded from attys-scope directly.
-  - ProcessedData : Extracted data from raw data, only remain 3 columns which are time, channel 1 and channel 2 of ADC.
-  - Output: The output of the *ecg_filter_demo.cpp* 
+  - RawData: The raw data recorded from attys-scope directly.
+  - ProcessedData: Extracted data from raw data, only remain 3 columns which are time, channel 1 and channel 2 of ADC..
+  - Output: The output of the *ecg_filter_demo.cpp*
 - DNF ：Deep neuronal Filter
 - PyScript : Python Files
-  - PlotRawData.py : Extract useful information from Raw Data and save to the folder *ProcessedData*. Plot Chanel 1 and Chanel 2 of ADC for each subject and trail (arm, wrist).
+  - PlotRawData.py: Extract useful information from Raw Data and save to the folder ProcessedData. Plot Chanel 1 and Chanel 2 of ADC for each subject and trail (arm, wrist).
   - GenerateFirCoeff.py : Generate the coefficient of fir filter for pre-filtering (Remove DC and 50HZ).
-    The coefficients will be save to *"firCoefficient.dat".*
+    The coefficients will be save to *"CH1firCoeff.dat".* and *"CH2firCoeff.dat"*.
   - PlotResults.py : Dynamic Plot results in time domain, and the frequency spectrum.
   - PlotResults.ipynb : Jupyter notebook version of *PlotResults.py.*
+  - SNR.py: Compute signal to noise ratio improvement.
+
